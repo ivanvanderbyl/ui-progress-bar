@@ -1,6 +1,9 @@
+html body {
+  padding: 0;
+}
+
 html #container {
   margin: 0 0;
-/*  width: 400px;*/
   padding: 10px;
 }
 
