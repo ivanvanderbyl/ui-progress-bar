@@ -36,10 +36,11 @@ THE SOFTWARE.
   position: relative;
   padding-right: 1px;
   height: 35px;
-  background: #abb2bc;
+  background-color: #abb2bc;
   border-radius: 35px;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
+  border-radius: 35px;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b6bcc6), color-stop(1, #9da5b0));
   background: -moz-linear-gradient(#9da5b0 0%, #b6bcc6 100%);
   -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
@@ -53,6 +54,7 @@ THE SOFTWARE.
   border-radius: 35px;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
+  border-radius: 35px;
   background: #74d04c url('../images/ui-stripe.png') repeat-x left top;
   display: block;
   overflow: hidden;
