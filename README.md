@@ -31,6 +31,7 @@ License
 =======
 
 Copyright (c) 2010 Ivan Vanderbyl
+
 Originally found at http://ivan.ly/ui
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
