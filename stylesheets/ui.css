@@ -5,6 +5,7 @@ body {
   background: #FFF url('../images/bg-tile.png') repeat;
   position: relative;
   margin: 0;
+  padding: 0;
 }
 
 #container {
