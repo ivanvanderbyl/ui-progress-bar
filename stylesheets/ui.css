@@ -3,6 +3,8 @@ body {
   font-size: 62.5%;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: #FFF url('../images/bg-tile.png') repeat;
+  position: relative;
+  margin: 0;
 }
 
 #container {

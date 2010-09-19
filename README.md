@@ -9,6 +9,20 @@ Here it is.
 
 Enjoy.
 
+View it here [http://ivan.ly/ui](http://ivan.ly/ui "CSS Progress Bar")
+
 Contributing
 ============
 
+Once you've made your great commits:
+
+1. [Fork][1] This repository
+2. Create a topic branch - `git checkout -b my_branch`
+3. Push to your branch - `git push origin my_branch`
+4. Create a pull request
+5. That's it!
+
+Author
+======
+
+Ivan Vanderbyl :: ivan at asterism dot com dot au :: [@IvanVanderbyl](http://twitter.com/ivanvanderbyl)
