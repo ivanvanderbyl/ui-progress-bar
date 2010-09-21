@@ -71,7 +71,10 @@ $('#progress_bar .ui-progress .ui-label').hide();
 $('#progress_bar .ui-progress').animateProgress(43, function() {
   $(this).animateProgress(79, function() {
     setTimeout(function() {
-      $('#progress_bar .ui-progress').animateProgress(100);
+      $('#progress_bar .ui-progress').animateProgress(100, function() {
+        $('#main_content').slideDown();
+        $('#fork_me').fadeIn();
+      });
     }, 2000);
   });
 });
