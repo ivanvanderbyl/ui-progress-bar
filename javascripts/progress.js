@@ -66,6 +66,8 @@
 
 // Hide the label at start
 $('#progress_bar .ui-progress .ui-label').hide();
+// Set initial value
+$('#progress_bar .ui-progress').css('width', '7%');
 
 // Simulate some progress
 $('#progress_bar .ui-progress').animateProgress(43, function() {

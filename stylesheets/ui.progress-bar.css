@@ -55,11 +55,23 @@ THE SOFTWARE.
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
   border-radius: 35px;
-  background: #74d04c url('../images/ui-stripe.png') repeat-x left top;
+/*  background: #74d04c url('../images/ui-stripe.png') repeat-x left top;*/
+  
+  -webkit-background-size: 44px 44px;  
+  
   display: block;
   overflow: hidden;
-  background: url('../images/ui-stripe.png') repeat-x left top, -webkit-gradient(linear, left bottom, left top, color-stop(1, #9bdd62), color-stop(0, #74d04c));
-  background: url('../images/ui-stripe.png') repeat-x left top, -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
+  background: -webkit-gradient(linear, 0 0, 44 44,
+      color-stop(0.00, #9bdd62),
+      color-stop(0.25, #9bdd62),
+      color-stop(0.26, #B7DD9E),
+      color-stop(0.50, #B7DD9E),
+      color-stop(0.51, #9bdd62),
+      color-stop(0.75, #9bdd62),
+      color-stop(0.76, #B7DD9E),
+      color-stop(1.00, #B7DD9E)
+  ), -webkit-gradient(linear, left bottom, left top, color-stop(1, #9bdd62), color-stop(0, #74d04c));
+  background: repeat-x left top, -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
   -webkit-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
   -moz-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
   box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
