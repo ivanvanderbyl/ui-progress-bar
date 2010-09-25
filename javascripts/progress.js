@@ -22,6 +22,7 @@
 (function( $ ){
   // Simple wrapper around jQuery animate to simplify animating progress from your app
   // Inputs: Progress as a percent, Callback
+  // TODO: Add options and jQuery UI support.
   $.fn.animateProgress = function(progress, callback) {    
     return this.each(function() {
       $(this).animate({
@@ -64,19 +65,22 @@
   };
 })( jQuery );
 
-// Hide the label at start
-$('#progress_bar .ui-progress .ui-label').hide();
-// Set initial value
-$('#progress_bar .ui-progress').css('width', '7%');
+$(function() {
+  // Hide the label at start
+  $('#progress_bar .ui-progress .ui-label').hide();
+  // Set initial value
+  $('#progress_bar .ui-progress').css('width', '7%');
 
-// Simulate some progress
-$('#progress_bar .ui-progress').animateProgress(43, function() {
-  $(this).animateProgress(79, function() {
-    setTimeout(function() {
-      $('#progress_bar .ui-progress').animateProgress(100, function() {
-        $('#main_content').slideDown();
-        $('#fork_me').fadeIn();
-      });
-    }, 2000);
+  // Simulate some progress
+  $('#progress_bar .ui-progress').animateProgress(43, function() {
+    $(this).animateProgress(79, function() {
+      setTimeout(function() {
+        $('#progress_bar .ui-progress').animateProgress(100, function() {
+          $('#main_content').slideDown();
+          $('#fork_me').fadeIn();
+        });
+      }, 2000);
+    });
   });
+  
 });
