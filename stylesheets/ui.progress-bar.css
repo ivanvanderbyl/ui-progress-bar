@@ -84,6 +84,7 @@ THE SOFTWARE.
   ), -webkit-gradient(linear, left bottom, left top, color-stop(0, #74d04c), color-stop(1, #9bdd62));
   
   /* Mozilla (Firefox etc) background stripes */
+  /* Note: Mozilla's support for gradients is more true to the original design, allowing gradients at 30 degrees, as apposed to 45 degress in webkit. */
   background: -moz-repeating-linear-gradient(top left -30deg, 
     rgba(255,255,255,0.17), 
     rgba(255,255,255,0.17) 15px, 
