@@ -86,9 +86,9 @@ THE SOFTWARE.
   /* Mozilla (Firefox etc) background stripes */
   background: repeat-x left top, -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
   
-  /* Webkit emosing */
+  /* Webkit embossing */
   -webkit-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
-  /* Mozilla Embossing */
+  /* Mozilla embossing */
   -moz-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
   /* IE9 and Opera embossing */
   box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
