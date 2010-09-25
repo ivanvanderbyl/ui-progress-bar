@@ -35,16 +35,28 @@ THE SOFTWARE.
 
 /* Bar which is placed behind the progress */
 .ui-progress-bar {
+  /* Usual setup stuff */
   position: relative;
-  padding-right: 1px;
   height: 35px;
+  
+  /* Pad right so we don't cover the borders when fully progressed */
+  padding-right: 2px;
+  
+  /* For browser that don't support gradients, we'll set a blanket background colour */
   background-color: #abb2bc;
+  
+  /* Rounds the ends, we specify an excessive amount to make sure they are completely rounded */
+  /* Adjust to your liking, and don't forget to adjust to the same amount in .ui-progress */
   border-radius: 35px;
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
-  border-radius: 35px;
+  
+  /* Webkit background gradient */
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #b6bcc6), color-stop(1, #9da5b0));
+  /* Mozilla background gradient */
   background: -moz-linear-gradient(#9da5b0 0%, #b6bcc6 100%);
+  
+  /* Give it the inset look by adding some shadows and highlights */
   -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
   -moz-box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
   box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
@@ -68,8 +80,9 @@ THE SOFTWARE.
   
   /* Set the background size so the stripes work correctly */
   -webkit-background-size: 44px 44px; /* Webkit */
-  -moz-background-size:  44px 44px;   /* Gecko 1.9.2 (Firefox 3.6) */
-  background-size: 44px 44px;         /* Gecko 2.0 (Firefox 4.0) and later */
+  
+  /* For browser that don't support gradients, we'll set a blanket background colour */
+  background-color: #74d04c;
   
   /* Webkit background stripes and gradient */
   background: -webkit-gradient(linear, 0 0, 44 44,
@@ -108,6 +121,7 @@ THE SOFTWARE.
   /* TODO: Wait for Mozilla to support animation, then implement */
 }
 
+/* Progress indicator text */
 .ui-progress span.ui-label {
   font-size: 1.2em;
   position: absolute;
