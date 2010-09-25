@@ -73,18 +73,23 @@ THE SOFTWARE.
   
   /* Webkit background stripes and gradient */
   background: -webkit-gradient(linear, 0 0, 44 44,
-      color-stop(0.00, rgba(255,255,255,0.17)),
-      color-stop(0.25, rgba(255,255,255,0.17)),
-      color-stop(0.26, rgba(255,255,255,0)),
-      color-stop(0.50, rgba(255,255,255,0)),
-      color-stop(0.51, rgba(255,255,255,0.17)),
-      color-stop(0.75, rgba(255,255,255,0.17)),
-      color-stop(0.76, rgba(255,255,255,0)),
-      color-stop(1.00, rgba(255,255,255,0))
+    color-stop(0.00, rgba(255,255,255,0.17)),
+    color-stop(0.25, rgba(255,255,255,0.17)),
+    color-stop(0.26, rgba(255,255,255,0)),
+    color-stop(0.50, rgba(255,255,255,0)),
+    color-stop(0.51, rgba(255,255,255,0.17)),
+    color-stop(0.75, rgba(255,255,255,0.17)),
+    color-stop(0.76, rgba(255,255,255,0)),
+    color-stop(1.00, rgba(255,255,255,0))
   ), -webkit-gradient(linear, left bottom, left top, color-stop(0, #74d04c), color-stop(1, #9bdd62));
   
   /* Mozilla (Firefox etc) background stripes */
-  background: repeat-x left top, -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
+  background: -moz-repeating-linear-gradient(top left -30deg, 
+    rgba(255,255,255,0.17), 
+    rgba(255,255,255,0.17) 15px, 
+    rgba(255,255,255,0) 15px, 
+    rgba(255,255,255,0) 30px
+  ), -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
   
   /* Webkit embossing */
   -webkit-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
