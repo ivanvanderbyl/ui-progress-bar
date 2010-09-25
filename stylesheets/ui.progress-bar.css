@@ -22,6 +22,7 @@ THE SOFTWARE.
 
 */
 
+/* Webkit animation keyframes */
 @-webkit-keyframes animate-stripes {
   from {
     background-position: 0 0;
@@ -32,6 +33,7 @@ THE SOFTWARE.
   }
 }
 
+/* Bar which is placed behind the progress */
 .ui-progress-bar {
   position: relative;
   padding-right: 1px;
@@ -48,37 +50,56 @@ THE SOFTWARE.
   box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px #FFF;
 }
 
+/* Progress part of the progress bar */
 .ui-progress {
+  /* Usual setup stuff */
   position: relative;
+  display: block;
+  overflow: hidden;
+  
+  /* Height should be 2px less than .ui-progress-bar so as to not cover borders and give it a look of being inset */
   height: 33px;
-  border-radius: 35px;
+  
+  /* Rounds the ends, we specify an excessive amount to make sure they are completely rounded */
+  /* Adjust to your liking, and don't forget to adjust to the same amount in .ui-progress-bar */
   -moz-border-radius: 35px;
   -webkit-border-radius: 35px;
   border-radius: 35px;
-/*  background: #74d04c url('../images/ui-stripe.png') repeat-x left top;*/
   
-  -webkit-background-size: 44px 44px;  
+  /* Set the background size so the stripes work correctly */
+  -webkit-background-size: 44px 44px; /* Webkit */
+  -moz-background-size:  44px 44px;   /* Gecko 1.9.2 (Firefox 3.6) */
+  background-size: 44px 44px;         /* Gecko 2.0 (Firefox 4.0) and later */
   
-  display: block;
-  overflow: hidden;
+  /* Webkit background stripes and gradient */
   background: -webkit-gradient(linear, 0 0, 44 44,
-      color-stop(0.00, #9bdd62),
-      color-stop(0.25, #9bdd62),
-      color-stop(0.26, #B7DD9E),
-      color-stop(0.50, #B7DD9E),
-      color-stop(0.51, #9bdd62),
-      color-stop(0.75, #9bdd62),
-      color-stop(0.76, #B7DD9E),
-      color-stop(1.00, #B7DD9E)
-  ), -webkit-gradient(linear, left bottom, left top, color-stop(1, #9bdd62), color-stop(0, #74d04c));
+      color-stop(0.00, rgba(255,255,255,0.17)),
+      color-stop(0.25, rgba(255,255,255,0.17)),
+      color-stop(0.26, rgba(255,255,255,0)),
+      color-stop(0.50, rgba(255,255,255,0)),
+      color-stop(0.51, rgba(255,255,255,0.17)),
+      color-stop(0.75, rgba(255,255,255,0.17)),
+      color-stop(0.76, rgba(255,255,255,0)),
+      color-stop(1.00, rgba(255,255,255,0))
+  ), -webkit-gradient(linear, left bottom, left top, color-stop(0, #74d04c), color-stop(1, #9bdd62));
+  
+  /* Mozilla (Firefox etc) background stripes */
   background: repeat-x left top, -moz-linear-gradient(#9bdd62 0%, #74d04c 100%);
+  
+  /* Webkit emosing */
   -webkit-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
+  /* Mozilla Embossing */
   -moz-box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
+  /* IE9 and Opera embossing */
   box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;
+  
+  /* Give it a higher contrast outline */
   border: 1px solid #4c8932;
   
   /* Webkit magic */
   -webkit-animation: animate-stripes 2s linear infinite;
+  
+  /* TODO: Wait for Mozilla to support animation, then implement */
 }
 
 .ui-progress span.ui-label {
