@@ -122,13 +122,21 @@ THE SOFTWARE.
 }
 
 /* Progress indicator text */
-.ui-progress span.ui-label {
+.ui-progress span.ui-label, .ui-progress span.value{
   font-size: 1.2em;
   position: absolute;
   right: 0;
   line-height: 33px;
-  padding-right: 12px;
+  padding-right: 40px;
   color: rgba(0,0,0,0.6);
   text-shadow: rgba(255,255,255, 0.45) 0 1px 0px;
   white-space: nowrap;
+  display: none;
 }
+
+.ui-progress span.value{
+  padding-right: 8px;
+  display: inline;
+  font-weight: bold;
+}
+

@@ -20,67 +20,84 @@
 // THE SOFTWARE.
 
 (function( $ ){
-  // Simple wrapper around jQuery animate to simplify animating progress from your app
-  // Inputs: Progress as a percent, Callback
-  // TODO: Add options and jQuery UI support.
-  $.fn.animateProgress = function(progress, callback) {    
-    return this.each(function() {
-      $(this).animate({
-        width: progress+'%'
-      }, {
-        duration: 2000, 
-        
-        // swing or linear
-        easing: 'swing',
+  var methods = {
+    animate: function(opt){ 
+      opt = $.extend({}, jQuery.fn.animateProgress.defaults, opt);
 
-        // this gets called every step of the animation, and updates the label
-        step: function( progress ){
-          var labelEl = $('.ui-label', this),
-              valueEl = $('.value', labelEl);
-          
-          if (Math.ceil(progress) < 20 && $('.ui-label', this).is(":visible")) {
-            labelEl.hide();
-          }else{
-            if (labelEl.is(":hidden")) {
-              labelEl.fadeIn();
+      return this.each(function() {
+        $(this).animate({
+          width: opt.progress+'%'
+        }, {
+          duration: opt.duration, 
+
+          // swing or linear
+          easing: 'swing',
+
+          // this gets called every step of the animation, and updates the label
+          step: function( progress ){
+            var labelEl = $('.ui-label', this),
+            valueEl = $('.value', this);
+
+            if(opt.label != undefined){ labelEl.text(opt.label); }
+
+            if (Math.ceil(progress) < 20 && $('.ui-label', this).is(":visible")) {
+              labelEl.hide();
+            }else{
+              if (labelEl.is(":hidden")) {
+                labelEl.fadeIn();
+              };
+            }
+
+            if (Math.ceil(progress) == 100) {
+              labelEl.text('Done');
+              setTimeout(function() {
+                labelEl.fadeOut();
+              }, 500);
+            }
+            valueEl.text(Math.ceil(progress) + '%');
+          },
+          complete: function(scope, i, elem) {
+            if ('callback' in opt && typeof(opt.callback) == 'function') {
+              opt.callback.call(this, i, elem );
             };
           }
-          
-          if (Math.ceil(progress) == 100) {
-            labelEl.text('Done');
-            setTimeout(function() {
-              labelEl.fadeOut();
-            }, 1000);
-          }else{
-            valueEl.text(Math.ceil(progress) + '%');
-          }
-        },
-        complete: function(scope, i, elem) {
-          if (callback) {
-            callback.call(this, i, elem );
-          };
-        }
-      });
-    });
-  };
-})( jQuery );
-
-$(function() {
-  // Hide the label at start
-  $('#progress_bar .ui-progress .ui-label').hide();
-  // Set initial value
-  $('#progress_bar .ui-progress').css('width', '7%');
-
-  // Simulate some progress
-  $('#progress_bar .ui-progress').animateProgress(43, function() {
-    $(this).animateProgress(79, function() {
-      setTimeout(function() {
-        $('#progress_bar .ui-progress').animateProgress(100, function() {
-          $('#main_content').slideDown();
-          $('#fork_me').fadeIn();
         });
-      }, 2000);
-    });
-  });
-  
-});
+      });
+    },
+    
+    // update label
+    label: function(text){
+      var labelEl = $('.ui-label', this);
+      if(text != undefined){ labelEl.text(text); }
+    }
+  };
+
+  // Simple wrapper around jQuery animate to simplify animating progress from your app
+  // Inputs: 
+  //  progress:     Progress as a percent
+  //  label:      label text 
+  //  duration:     animation speed
+  //  callback:     Callback function
+  // TODO: Add options and jQuery UI support.
+  $.fn.animateProgress = function(method){ 
+    // Method calling logic
+    if ( methods[method] ) {
+      return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    }
+    else if ( typeof method === 'object' || ! method ) {
+      return methods.animate.apply( this, arguments );
+    }
+    else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.animateProgress' );
+    }
+  }; 
+
+  jQuery.fn.animateProgress.defaults = {
+    label:    undefined,
+    progress:   7,
+    callback:   undefined,
+    duration:   2000
+  };
+
+
+})( jQuery );

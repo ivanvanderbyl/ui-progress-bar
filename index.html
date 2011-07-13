@@ -10,6 +10,52 @@
   <link rel="stylesheet" href="stylesheets/ui.css">
   <link rel="stylesheet" href="stylesheets/ui.progress-bar.css">
   <link media="only screen and (max-device-width: 480px)" href="stylesheets/ios.css" type="text/css" rel="stylesheet" />
+  <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/progress.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      // Hide the label at start
+      $('#progress_bar .ui-progress .ui-label').hide();
+      // Set initial value
+      $('#progress_bar .ui-progress').css('width', '7%');
+
+      // Simulate some progress
+      var cb3 = function() {
+                  $('#main_content').slideDown();
+                  $('#fork_me').fadeIn();
+                },
+
+          cb2 = function() {
+                  var $this = $(this);
+                  window.setTimeout(function() {
+                    $this.animateProgress({
+                      progress:   100, 
+                      callback:   cb3,
+                      label:      'Finishing'
+                    });
+                  }, 2000);
+                },
+
+          cb1 = function(){
+                  $(this).animateProgress({
+                    progress: 79,
+                    callback: cb2,
+                    label:    'Doing other stuff'
+                  });
+                },
+
+          opt = {
+                  progress:   43,
+                  callback:   cb1,
+                  label:      'Processing'
+                }; 
+  
+
+      $('#progress_bar .ui-progress').animateProgress(opt);
+
+    });
+
+  </script>
 </head>
 <body>
   
@@ -49,7 +95,7 @@
     <!-- Progress bar -->
     <div id="progress_bar" class="ui-progress-bar ui-container">
       <div class="ui-progress" style="width: 79%;">
-        <span class="ui-label" style="display:none;">Processing <b class="value">79%</b></span>
+        <span class="ui-label"></span><span class="value">0%</span>
       </div>
     </div>
     <!-- /Progress bar -->
@@ -83,22 +129,6 @@
   </div>
   
   <a href="http://github.com/ivanvanderbyl/ui-progress-bar" id="fork_me" style="display:none;"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a> 
-  
-  <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
-  <script src="javascripts/progress.js" type="text/javascript" charset="utf-8"></script>
-  
-  <script type="text/javascript">
 
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-374977-27']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-
-  </script>
 </body>
 </html>
