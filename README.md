@@ -13,6 +13,11 @@ Enjoy.
 
 View it here [http://ivan.ly/ui](http://ivan.ly/ui "CSS Progress Bar")
 
+
+Themes
+======
+Dark theme by Timbo White.  Live demo:  http://demos.zulius.com/ui-progress-bar/dark.html
+
 Contributing
 ============
 
