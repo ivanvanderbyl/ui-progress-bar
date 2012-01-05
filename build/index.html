@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="initial-scale=1, maximum-scale=1, width=device-width" name="viewport">
+    <title>Pure CSS Progress bar demo</title>
+    <link href="stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="stylesheets/ui-progress-bar.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="javascripts/application.js" type="text/javascript"></script>
+    
+  </head>
+  <body class="index">
+    <div id="container">
+      <header>
+        <h1>
+              <a rel="twipsy" title="This is CSS" href="/">Progress Bar
+          <span class="grad"></span>
+          </a>
+      
+        </h1>
+      </header>
+      <div id="stage">
+        <section class="work">
+          <div class="ui-progress-bar ui-container" id="progress_bar">
+            <div class="ui-progress" style="width: 7%;">
+              <span class="ui-label" style="display:none;">
+                Loading Resources
+                <b class="value">7%</b>
+              </span>
+            </div>
+          </div>
+        </section>
+        <section class="intro" style="display: none;">
+          <article>
+            <h2>A pure CSS progress bar.</h2>
+            <p>
+              The purpose of this project is to demonstrate the capabilities CSS3 in modern web browsers, and as such this progress bar is styled entirely using CSS.
+            </p>
+            <p>
+              For funtional purposes the progression is handled by Javascript, allowing this to be used within your application
+              right away.
+            </p>
+            <p>
+              <i>No styles were harmed by images in the making of this project.</i>
+            </p>
+          </article>
+          <div class="download">
+            <ol class="links">
+              <li class="link"><a class="btn download" href="/stylesheets/ui-progress-bar.css"><span>Get it</span></a></li>
+              <li class="link"><a class="btn fork" href="http://github.com/ivanvanderbyl/ui-progress-bar"><span>Fork it</span></a></li>
+            </ol>
+          </div>
+        </section>
+        <section class="compatibility" style="display: none;">
+          <h2>Compatibility</h2>
+          <ol class="browsers">
+            <li class="browser" id="chrome">
+              <p>Google Chrome 12+</p>
+            </li>
+            <li class="browser" id="firefox">
+              <p>Firefox 5+</p>
+            </li>
+            <li class="browser" id="safari">
+              <p>Safari 5+</p>
+            </li>
+            <li class="browser" id="opera">
+              <p>Opera 11+</p>
+            </li>
+            <li class="browser" id="ie">
+              <p>Internet Explorer 9+</p>
+            </li>
+          </ol>
+          <article>
+            <p>
+              This progress bar will work in the latest version of all major browsers to provide full compatibility with animation, gradients, and shadows, and degrade gracefully in older versions, however
+              <abbr title="Your Mileage May Vary">YMMV</abbr>
+            </p>
+          </article>
+        </section>
+        <section class="wild" style="display: none;">
+          <h2>
+            In the wild
+            <span>Who's using it?</span>
+          </h2>
+          <ol class="users">
+            <li class="user" id="sparrow">
+              <a rel="nofollow" href="http://sprw.me/comingsoon/">Sparrow for iPhone</a>
+            </li>
+            <li class="user" id="test_pilot">
+              <a href="http://testpilot.me">TestPilot CI</a>
+            </li>
+            <li class="user" id="add">
+              <a rel="twipsy" title="I'm using this!" href="https://github.com/ivanvanderbyl/ui-progress-bar/issues/new?title=[INSERT+PROJECT]+is+using+this">I'm using it!</a>
+            </li>
+          </ol>
+        </section>
+      </div>
+      <script>
+        //<![CDATA[
+          $(function() {
+            App.init();  
+          });
+        //]]>
+      </script>
+      <footer style="display: none;">
+        <p class="copy">
+          Another <a rel="twipsy" title="Follow Ivan on Twitter" href="http://twitter.com/IvanVanderbyl">Ivan Vanderbyl</a> project. Some Rights Reserved 2012.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

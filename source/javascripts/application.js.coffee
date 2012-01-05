@@ -10,7 +10,7 @@ window.App = {
   
   init: ->
     self = @
-    $('a[rel="twipsy"]').twipsy()
+    $('a[rel="twipsy"], abbr').twipsy()
     
     @progressBar = $("#progress_bar")
     @progressBar.removeClass("transition").addClass("error").addClass("transition")
