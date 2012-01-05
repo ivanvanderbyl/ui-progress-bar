@@ -263,8 +263,6 @@ section {
       li.user {
         @include border-radius(3px);
         float: left;
-/*        width: 150px;
-        height: 80px;*/
         margin-right: 1em;
         @include box-shadow(rgba(black, 0.5) 0 0px 1px 0);
         
@@ -303,7 +301,7 @@ section {
             &:hover {
               background: image-url("users/unknown.png") no-repeat center center, darken(white, 9%);
             };
-          }          
+          }
         }
         
       }
