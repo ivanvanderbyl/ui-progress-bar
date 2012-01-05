@@ -31,10 +31,6 @@ $border-radius: $height;
 
 @import "compass/css3";
 
-body {
-  -webkit-font-smoothing: antialiased;  
-}
-
 /* Webkit animation keyframes */
 @-webkit-keyframes animate-stripes {
   from {
@@ -54,9 +50,7 @@ body {
   }
 }
 
-
 /* Bar which is placed behind the progress */
-
 .ui-progress-bar {
   /* Usual setup stuff */
   position: relative;
@@ -76,8 +70,7 @@ body {
   /* Give it the inset look by adding some shadows and highlights */
   @include box-shadow(inset 0px 1px 2px 0px rgba(0, 0, 0, 0.5), 0px 1px 0px 0px white);
   
-  /* Progress part of the progress bar */
-  
+  /* Alt colours */
   &.blue {
     .ui-progress {
       background-color: #339BB9!important;
@@ -106,13 +99,12 @@ body {
     }
   }
   
-  
   &.transition .ui-progress {
     @include transition(background-color 0.5s ease-in, 
                         border-color 1.5s ease-out,
                         box-shadow 1.5s ease-out);
   }
-
+  /* Progress part of the progress bar */
   .ui-progress {
     /* Usual setup stuff */
     position: relative;
@@ -155,10 +147,7 @@ body {
     ), -moz-linear-gradient(rgba(white, 0.25) 0%, rgba(white, 0) 100%), $bar-color;
     
     @include box-shadow(inset 0px 1px 0px 0px rgba(white, 0.4), inset 0px -1px 1px rgba(black, 0.2));
-    
-    /* IE9 and Opera embossing */
-/*    box-shadow: inset 0px 1px 0px 0px #dbf383, inset 0px -1px 1px #58c43a;*/
-    
+        
     /* Give it a higher contrast outline */
     border: 1px solid $border-color;
     
