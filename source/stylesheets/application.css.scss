@@ -1,0 +1,399 @@
+@import "compass";
+
+$link-color:         #0388a6;
+$link-hover-color:   #009ce0;
+$link-focus-color:   false;
+$link-active-color:  false;
+$link-visited-color: false;
+
+$font-color:  #2a2a2a;
+$font-family: sans-serif;
+$base-font-size:   12px;
+$base-line-height: 18px;
+
+$total-cols: 12;
+$col-width: 4em;
+$gutter-width: 1em;
+$side-gutter-width: $gutter-width;
+
+@include global-reset;
+
+/* new clearfix */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+@mixin clearfix {
+  @extend .clearfix;
+}
+
+
+body {
+  font-family: $font-family;
+  color: $font-color; 
+  @include background(linear-gradient(white 0, white 20px, rgba(white, 0) 200px) no-repeat,image-url('bg-body.jpg'));
+  @include experimental(font-smoothing, antialiased);
+  padding: 20px 0;
+}
+
+a {
+  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
+}
+
+#container {
+  margin: 0 auto;
+  width: 720px;
+  
+  h1 {
+    padding-top: 1em;
+    
+    a {
+      font-family: "Myriad Pro", "Helvetica Neue", sans-serif;
+      font-size: 2.5em;
+      color: black;
+      text-decoration: none;
+      line-height: 1.5em;
+      font-weight: bold;
+      position: relative;
+      
+      .grad {
+        @include background(linear-gradient(rgba(white, 0.2), rgba(white, 0.3) 50%, rgba(white, 0.2) 50%, rgba(white, 0.5) 100%));
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+#stage {
+  margin-top: 10px;
+  padding: 50px;
+  
+  background: darken(white, 1.5%);
+  @include border-radius(4px);
+  @include box-shadow(rgba(black, 0.2) 0 0px 1px 0, rgba(black, 0.3) 0 1px 3px 0, rgba(black, 0.1) 0 1px 5px 0);
+}
+
+section {
+  padding: 20px 0;
+  
+  a.btn {  
+    cursor: pointer;
+    display: inline-block;
+    background-color: #E6E6E6;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    padding: 15px 25px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+    color: #333;
+    font-size: 13px;
+    line-height: normal;
+    border: 1px solid #CCC;
+    border-bottom-color: #BBB;
+    
+    @include border-radius(4px);
+    @include box-shadow(inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05));
+    @include experimental(transition, 0.1s linear all);
+    
+    border: none;
+    font-family: "Myriad Pro", sans-serif;
+    font-size: 20px;
+    color: rgba(black, 0.8);
+    line-height: 1em;
+    
+    span {
+      padding-left: 26px;
+      line-height: 24px;
+      display: block;
+    }
+    
+    @include box-shadow(rgba(white, 0.8) 0 1px 0 inset, rgba(black, 0.2) 0 2px 3px 0);
+    
+    &:hover {
+      @include box-shadow(rgba(white, 0.8) 0 1px 0 inset, rgba(white, 0.2) 0 5px 5px inset, rgba(black, 0.2) 0 2px 3px 0);
+    }
+    
+    &:active {
+      @include box-shadow(rgba(white, 0.8) 0 1px 0 inset, rgba(black, 0.2) 0 2px 3px 0);
+    }
+        
+    &.fork {
+      background: #20A0D6;
+      @include background(linear-gradient(#20A0D6, darken(#20A0D6, 10%)));
+      
+      span {
+        background: image-url("fork-it-24.png") no-repeat left center;
+      }      
+      
+      &:active {
+        @include background(linear-gradient(darken(#20A0D6, 10%), #20A0D6));
+      }
+    }
+    
+    &.download {
+      background: #18ab3b;
+      @include background(linear-gradient(#20d74b, #18ab3b));
+      
+      span {
+        background: image-url("download-24.png") no-repeat left center;
+      }
+      
+      &:active {
+        @include background(linear-gradient(#18ab3b, #20d74b));
+      }
+      
+    }
+    
+  }
+  
+  ol.links {
+    @include clearfix;
+    li {
+      float: left;
+      margin-right: 1em;
+    }
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    line-height: 2em;
+    
+    span {
+      font-size: 0.5em;
+    }
+  }
+  
+  p {
+    line-height: 1.2em;
+    margin-bottom: 0.5em;
+    
+    i {
+      font-style: italic;
+      color: lighten(black, 40%);
+    }
+  }
+  
+  &.wild, &.compatibility {
+    border-top: 1px solid darken(white, 8%);
+  }
+  
+  &.intro {
+    padding: 0;
+  }
+  
+  article {
+    padding: 15px;
+    @include border-radius(3px);
+    background: darken(white, 8%);
+  }
+  
+  .download {
+    padding: 20px 0;
+  }
+  
+  &.compatibility {
+    ol.browsers {
+      margin: 0 0 1em 0;
+      padding: 0;
+      @include clearfix;
+      
+      li.browser {
+        float: left;
+        width: 80px;
+        margin-right: 1em;
+        display: block;
+        p {
+          font-size: 11px;
+          width: 64px;
+          padding-top: 64px;
+          background: image-url("browser-logos-64.png") no-repeat;
+          text-align: center;
+        }
+        
+        &#chrome {
+          p {
+            background-position: 0 0;
+          }
+        }
+        
+        &#firefox {
+          p {
+            background-position: -72px 0;
+          }
+        }
+        
+        &#ie {
+          p {
+            background-position: -280px 0;
+          }
+        }
+        
+        &#opera {
+          p {
+            background-position: -144px 0;
+          }
+        }
+        
+        &#safari {
+          p {
+            background-position: -210px 0;
+          }
+        }
+        
+      }
+    }
+  }
+  
+  &.wild {
+    padding-bottom: 0;
+    
+    ol.users {
+      @include clearfix;
+      li.user {
+        @include border-radius(3px);
+        float: left;
+/*        width: 150px;
+        height: 80px;*/
+        margin-right: 1em;
+        @include box-shadow(rgba(black, 0.5) 0 0px 1px 0);
+        
+        
+        a {
+          width: 150px;
+          height: 80px;
+          display: block;
+          text-indent: -999px;
+          padding: 5px;
+          @include border-radius(2px);
+        }
+        
+        &#sparrow a {
+          background: image-url("users/sparrow.png") no-repeat center center;
+          
+          &:hover {
+            background: image-url("users/sparrow.png") no-repeat center center, darken(white, 9%);
+          };
+        }
+        
+        &#test_pilot a {
+          background: image-url("users/testpilot.png") no-repeat center center;
+          
+          &:hover {
+            background: image-url("users/testpilot.png") no-repeat center center, darken(white, 9%);
+          };
+        }
+        
+        &#add {
+          width: 90px;
+          a {
+            width: 80px;
+            background: image-url("users/unknown.png") no-repeat center center;
+          
+            &:hover {
+              background: image-url("users/unknown.png") no-repeat center center, darken(white, 9%);
+            };
+          }          
+        }
+        
+      }
+    }
+  }
+}
+
+footer {
+  font-size: 11px;
+  padding: 15px 20px;
+}
+
+.modal .popover, .modal .twipsy {
+  z-index: 12000;
+}
+.twipsy {
+  display: block;
+  position: absolute;
+  visibility: visible;
+  padding: 5px;
+  font-size: 11px;
+  z-index: 1000;
+  filter: alpha(opacity=80);
+  -khtml-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+.twipsy.fade.in {
+  filter: alpha(opacity=80);
+  -khtml-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+.twipsy.above .twipsy-arrow {
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #000000;
+}
+.twipsy.left .twipsy-arrow {
+  top: 50%;
+  right: 0;
+  margin-top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid #000000;
+}
+.twipsy.below .twipsy-arrow {
+  top: 0;
+  left: 50%;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #000000;
+}
+.twipsy.right .twipsy-arrow {
+  top: 50%;
+  left: 0;
+  margin-top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #000000;
+}
+.twipsy-inner {
+  padding: 3px 8px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  max-width: 200px;
+  text-decoration: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.twipsy-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.fade {
+  -webkit-transition: opacity 0.15s linear;
+  -moz-transition: opacity 0.15s linear;
+  -ms-transition: opacity 0.15s linear;
+  -o-transition: opacity 0.15s linear;
+  transition: opacity 0.15s linear;
+  opacity: 0;
+}
+.fade.in {
+  opacity: 1;
+}

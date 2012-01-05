@@ -1,0 +1,73 @@
+%header
+  %h1
+    = link_to '/', :rel => "twipsy", :title => "This is CSS" do
+      Progress Bar
+      %span.grad
+      
+#stage
+  %section.work
+    #progress_bar.ui-progress-bar.ui-container
+      .ui-progress{:style => "width: 7%;"}
+        %span.ui-label{:style => "display:none;"}
+          Loading Resources
+          %b.value 7%
+        
+  %section.intro{:style => "display: none;"}
+    %article
+      %h2 A pure CSS progress bar.
+    
+      %p 
+        The purpose of this project is to demonstrate the capabilities CSS3 in modern web browsers, and as such this progress bar is styled entirely using CSS.
+    
+      %p
+        For funtional purposes the progression is handled by Javascript, allowing this to be used within your application
+        right away.
+      
+      %p
+        %i No styles were harmed by images in the making of this project.
+    
+    .download
+      %ol.links
+        %li.link= link_to "<span>Get it</span>", 'https://raw.github.com/ivanvanderbyl/ui-progress-bar/master/public/stylesheets/ui-progress-bar.css', :class => 'btn download'
+        %li.link= link_to "<span>Fork it</span>", 'http://github.com/ivanvanderbyl/ui-progress-bar', :class => 'btn fork'
+
+  %section.compatibility{:style => "display: none;"}
+    %h2 Compatibility
+    %ol.browsers
+      %li.browser#chrome
+        %p Google Chrome 12+
+        
+      %li.browser#firefox
+        %p Firefox 5+
+      
+      %li.browser#safari
+        %p Safari 5+
+      
+      %li.browser#opera
+        %p Opera 11+
+      
+      %li.browser#ie
+        %p Internet Explorer 9+
+      
+    %article
+      %p This progress bar will work in the latest version of all major browsers to provide full compatibility with animation, gradients, and shadows, and degrade gracefully in older versions, however YMMV.
+    
+  %section.wild{:style => "display: none;"}
+    %h2
+      In the wild
+      %span Who's using it?
+      
+    %ol.users
+      %li.user#sparrow
+        = link_to "Sparrow for iPhone", "http://sprw.me/comingsoon/", :rel => 'nofollow'
+      %li.user#test_pilot
+        = link_to "TestPilot CI", "http://testpilot.me"
+      %li.user#add
+        = link_to "I'm using it!", "https://github.com/ivanvanderbyl/ui-progress-bar/issues/new?title=[INSERT+PROJECT]+is+using+this", :rel => 'twipsy', :title => "I'm using this!"
+      
+        
+:javascript
+  $(function() {
+    App.init();  
+  });
+  
