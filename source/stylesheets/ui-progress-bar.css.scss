@@ -22,36 +22,30 @@ THE SOFTWARE.
 
 */
 
-$background-color: #abb2bc;
-$bar-color: #74d04c;
-$height: 25px;
-$border-width: 1px;
-$border-color: #4c8932;
-$border-radius: $height;
-
 @import "compass/css3";
 
-/* Webkit animation keyframes */
-@-webkit-keyframes animate-stripes {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 44px 0;
-  }
-}
+@mixin ui-progress-bar($background-color: #abb2bc, $bar-color: #74d04c, $height: 25px, $border-width: 1px, $border-color: #4c8932) {
+  $border-radius: $height;
 
-@-moz-keyframes animate-stripes {
-  from {
-    background-position: 0 0;
+  /* Webkit animation keyframes */
+  @-webkit-keyframes animate-stripes {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 44px 0;
+    }
   }
-  to {
-    background-position: 36px 0;
-  }
-}
 
-/* Bar which is placed behind the progress */
-.ui-progress-bar {
+  @-moz-keyframes animate-stripes {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 36px 0;
+    }
+  }
+
   /* Usual setup stuff */
   position: relative;
   height: $height;
