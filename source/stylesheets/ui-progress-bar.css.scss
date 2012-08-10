@@ -118,10 +118,6 @@ $border-radius: $height;
     /* Adjust to your liking, and don't forget to adjust to the same amount in .ui-progress-bar */
     @include border-radius($border-radius);
     
-    /* Set the background size so the stripes work correctly */
-    -webkit-background-size: 44px 44px;
-    -moz-background-size: 36px 36px;
-    
     /* Webkit */
     /* For browser that don't support gradients, we'll set a base background colour */
     background-color: $bar-color;
@@ -146,6 +142,10 @@ $border-radius: $height;
       rgba(255,255,255,0) 15px, 
       rgba(255,255,255,0) 30px
     ), -moz-linear-gradient(rgba(white, 0.25) 0%, rgba(white, 0) 100%), $bar-color;
+
+    /* Set the background size so the stripes work correctly */
+    -webkit-background-size: 44px 44px;
+    -moz-background-size: 36px 36px;
     
     @include box-shadow(inset 0px 1px 0px 0px rgba(white, 0.4), inset 0px -1px 1px rgba(black, 0.2));
         
