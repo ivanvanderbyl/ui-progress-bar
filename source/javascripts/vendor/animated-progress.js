@@ -26,7 +26,7 @@
           }
           
           if (Math.ceil(progress) == 100) {
-            labelEl.text('Completed');
+            valueEl.text('Completed');
             setTimeout(function() {
               labelEl.fadeOut();
             }, 1000);
