@@ -1,3 +1,6 @@
+** This project is no longer maintained. You can find a better progress bar in [Bootstrap](http://getbootstrap.com/components/#progress) **
+___
+
 Pure CSS Progress Bar
 =====================
 
