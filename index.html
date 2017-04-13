@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pure CSS Progress Bar</title>
+  
+  <!-- Make it look good on the iPhone (: -->
+  <meta name="viewport" content="width=device-width">
+  
+  <link rel="stylesheet" href="stylesheets/ui.css">
+  <link rel="stylesheet" href="stylesheets/ui.progress-bar.css">
+  <link media="only screen and (max-device-width: 480px)" href="stylesheets/ios.css" type="text/css" rel="stylesheet" />
+  <script src="javascripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/progress.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+      // Hide the label at start
+      $('#progress_bar .ui-progress .ui-label').hide();
+      // Set initial value
+      $('#progress_bar .ui-progress').css('width', '7%');
+
+      // Simulate some progress
+      var cb3 = function() {
+                  $('#main_content').slideDown();
+                  $('#fork_me').fadeIn();
+                },
+
+          cb2 = function() {
+                  var $this = $(this);
+                  window.setTimeout(function() {
+                    $this.animateProgress({
+                      progress:   100, 
+                      callback:   cb3,
+                      label:      'Finishing'
+                    });
+                  }, 2000);
+                },
+
+          cb1 = function(){
+                  $(this).animateProgress({
+                    progress: 79,
+                    callback: cb2,
+                    label:    'Doing other stuff'
+                  });
+                },
+
+          opt = {
+                  progress:   43,
+                  callback:   cb1,
+                  label:      'Processing'
+                }; 
+  
+
+      $('#progress_bar .ui-progress').animateProgress(opt);
+
+    });
+
+  </script>
+</head>
+<body>
+  
+  <div id="container">
+    
+    <div class="content">
+      <h1><a href="http://ivan.ly/ui/" title="Pure CSS Progress Bar">Pure CSS Progress Bar</a></h1>
+    </div>
+    
+    <!--
+      Designed, styled and coded by Ivan Vanderbyl
+      http://dribbble.com/players/ivan
+      If you use this, please give credit where due, and send me a screenshot or link
+
+      Copyright (c) 2010 Ivan Vanderbyl
+      Originally found at http://ivan.ly/ui
+
+      Permission is hereby granted, free of charge, to any person obtaining a copy
+      of this software and associated documentation files (the "Software"), to deal
+      in the Software without restriction, including without limitation the rights
+      to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+      copies of the Software, and to permit persons to whom the Software is
+      furnished to do so, subject to the following conditions:
+
+      The above copyright notice and this permission notice shall be included in
+      all copies or substantial portions of the Software.
+
+      THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+      IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+      FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+      AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+      LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+      OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+      THE SOFTWARE.
+    -->
+    
+    <!-- Progress bar -->
+    <div id="progress_bar" class="ui-progress-bar ui-container">
+      <div class="ui-progress" style="width: 79%;">
+        <span class="ui-label"></span><span class="value">0%</span>
+      </div>
+    </div>
+    <!-- /Progress bar -->
+    
+    <div class="content" id="main_content" style="display: none;">
+      <p>
+        Inspired by a shot from <a href="http://dribbble.com/shots/33322-Modal-upload">Jonno Riekwel</a>, I knocked up a quick <a href="http://dribbble.com/shots/55908-Progress-Bar">Progress Bar</a> in Photoshop on a friday afternoon before heading to the pub.
+      
+        Then a couple of people suggested implementing it with CSS.
+      </p>
+      
+      <p>
+        So I did.
+      </p>
+      
+      <p>
+        Enjoy,<br>
+        <a href="http://dribbble.com/players/ivan">Ivan Vanderbyl</a>
+      </p>
+      
+      <p class="small">
+        This is best viewed in a Webkit based browser, <a href="http://google.com/chrome" rel="nofollow">Chrome</a> is good*, also Safari. Opera 10.62+ looks ok, however it doesn't support gradients. Firefox and IE 9 kind of work (no stripe animation). IE 8, 7 and 6 do not support rounding, shadows, animation, or much else for that matter, in fact they are pretty bloody useless at being browsers.
+      </p>
+      
+      <p class="small">
+        * There is a <a href="http://code.google.com/p/chromium/issues/detail?id=29427" title="Inset box shadow escapes content when border radius present">known issue</a> with Chrome for Windows and Linux which will cancel out the rounded corners due to the use of inset box shadow. Because I use a Mac this is not regarded as an issue.
+      </p>
+            
+    </div>
+    
+  </div>
+  
+  <a href="http://github.com/ivanvanderbyl/ui-progress-bar" id="fork_me" style="display:none;"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a> 
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+html body {
+  padding: 0;
+}
+
+html #container {
+  margin: 0 0;
+  padding: 10px;
+}
+
+#fork_me {
+  display: none;
+}
